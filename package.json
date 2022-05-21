@@ -1,0 +1,8 @@
+{
+    "name": "react-native-template",
+    "version": "0.0.1",
+    "description": "React Native Template",
+    "repository": "git@github.com:khunghang16/RNTemplate.git",
+    "author": "Bryan Doan <trunganh2204@gmail.com>",
+    "license": "MIT"
+}
