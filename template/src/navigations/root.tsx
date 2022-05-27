@@ -24,7 +24,7 @@ const Root = () => {
         headerShadowVisible: false,
         headerBackTitleVisible: false,
       }}>
-      {!isReady ? (
+      {/* {!isReady ? (
         <Stack.Screen name="Spash">
           {props => <Splash {...props} onLoadSplash={onLoadSplash} />}
         </Stack.Screen>
@@ -38,7 +38,8 @@ const Root = () => {
         </Stack.Screen>
       ) : (
         (() => Auth())()
-      )}
+      )} */}
+      {(() => Auth())()}
     </Stack.Navigator>
   );
 };

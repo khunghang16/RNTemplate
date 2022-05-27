@@ -1,18 +1,22 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-
+import {getVersionApp} from 'services/deviceInfo';
+import {useTranslation} from 'react-i18next';
 interface Props {
   onLoadSplash: () => void;
 }
 
 const Splash = ({onLoadSplash}: Props) => {
+  const {t} = useTranslation();
+
   return (
     <View style={styles.container}>
       <Text
         onPress={() => {
           onLoadSplash();
+          // i18n.changeLanguage(i18n.language === 'vi' ? 'en' : 'vi');
         }}>
-        Splash
+        {t('splash.version', {appVersion: getVersionApp()})}
       </Text>
     </View>
   );

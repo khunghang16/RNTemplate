@@ -1,10 +1,20 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {View, Text} from 'react-native-ui-lib';
+import {setTheme} from 'designs/Colors';
 
 const Home = () => {
+  const {t} = useTranslation();
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
+    <View style={styles.container} bg-bgColor>
+      <Text
+        textColor
+        onPress={() => {
+          setTheme();
+        }}>
+        {t('home.title')}
+      </Text>
     </View>
   );
 };
