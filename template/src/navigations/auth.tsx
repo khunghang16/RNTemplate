@@ -17,8 +17,15 @@ const Auth = () => {
           presentation: 'fullScreenModal',
           headerShadowVisible: false,
           headerBackTitleVisible: false,
+          headerBackVisible: false,
         }}>
-        <Stack.Screen name="HomeModal" component={HomeModal} />
+        <Stack.Screen
+          name="HomeModal"
+          component={HomeModal}
+          options={{
+            headerBackVisible: false,
+          }}
+        />
       </Stack.Group>
     </>
   );

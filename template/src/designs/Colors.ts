@@ -60,6 +60,12 @@ export const getThemeStatusBarStyle = (
   return mode === 'dark' ? 'light-content' : 'dark-content';
 };
 
+export const getBgStatusBarStyle = (
+  mode = storeRedux.getState().theme.mode || 'light',
+) => {
+  return themes[mode].bgColor;
+};
+
 export const getNavigationTheme = (
   mode = storeRedux.getState().theme.mode,
 ): Theme => {

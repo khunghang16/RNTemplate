@@ -53,7 +53,10 @@ const ModalGlobal = (props: ModalGlobalProps) => {
 
   return (
     <Dialog
-      // useSafeArea
+      useSafeArea
+      modalProps={{
+        statusBarTranslucent: true,
+      }}
       bottom={stateModal.bottom}
       visible={stateModal.visible}
       onDismiss={() => setStateModal(prev => ({...prev, visible: false}))}
@@ -99,5 +102,6 @@ const styles = StyleSheet.create({
   containerStyle: {
     borderRadius: 16,
     marginBottom: 50,
+    backgroundColor: 'red',
   },
 });

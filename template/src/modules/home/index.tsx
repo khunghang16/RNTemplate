@@ -44,6 +44,12 @@ const Home = () => {
         }}
         title="Open Modal"
       />
+      <Button
+        onPress={() => {
+          navigation.navigate('HomeModal');
+        }}
+        title="Open Home Modal"
+      />
     </View>
   );
 };

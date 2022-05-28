@@ -1,3 +1,4 @@
+import {useAppNavigation} from 'navigations/types';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {View, Text} from 'react-native-ui-lib';
@@ -8,10 +9,15 @@ interface HomeModalProps {
 
 const HomeModal = (props: HomeModalProps) => {
   const {prop} = props;
-
+  const navigation = useAppNavigation();
   return (
     <View style={styles.container}>
-      <Text>HomeModal</Text>
+      <Text
+        onPress={() => {
+          navigation.goBack();
+        }}>
+        HomeModal
+      </Text>
     </View>
   );
 };
