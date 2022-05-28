@@ -1,12 +1,13 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {AppearanceMode} from 'designs/Colors';
+import {storageLocalData} from 'store/localData';
 
 export interface ThemeState {
   mode: 'light' | 'dark' | undefined;
 }
 
 const initialState: ThemeState = {
-  mode: 'light',
+  mode: storageLocalData.getString('theme') as 'light' | 'dark' | undefined,
 };
 
 export const themeSlice = createSlice({

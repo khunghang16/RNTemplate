@@ -7,6 +7,7 @@ const en = {
   },
   home: {
     title: 'Home',
+    changeLanguage: 'Change language',
   },
 };
 

@@ -1,13 +1,13 @@
 import {StyleSheet, Button} from 'react-native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {View, Text, ButtonAnimationDirection} from 'react-native-ui-lib';
+import {View, Text} from 'react-native-ui-lib';
 import {setTheme} from 'designs/Colors';
 import {useAppNavigation} from 'navigations/types';
 import {showModalGlobal} from 'components/ModalGlobal';
 
 const Home = () => {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
   const navigation = useAppNavigation();
   return (
     <View style={styles.container} bg-bgColor>
@@ -18,6 +18,13 @@ const Home = () => {
         }}>
         {t('home.title')}
       </Text>
+      <Text
+        textColor
+        onPress={() => {
+          i18n.changeLanguage(i18n.language === 'vi' ? 'en' : 'vi');
+        }}>
+        {t('home.changeLanguage')}
+      </Text>
       <Button
         onPress={() => {
           showModalGlobal({
@@ -26,15 +33,11 @@ const Home = () => {
             arrayButton: [
               {
                 label: 'Left',
-                onPress: () => {
-                  console.warn('Left');
-                },
+                onPress: () => {},
               },
               {
                 label: 'Right',
-                onPress: () => {
-                  console.warn('Right');
-                },
+                onPress: () => {},
               },
             ],
           });

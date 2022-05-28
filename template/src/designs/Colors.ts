@@ -1,5 +1,6 @@
 import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
 import {Colors, ThemeManager} from 'react-native-ui-lib';
+import {storageLocalData} from 'store/localData';
 import {storeRedux} from 'store/storeRedux';
 import {changeTheme} from 'store/theme';
 type DesignSystemColors = Record<string, string>;
@@ -40,12 +41,13 @@ export const themes: Record<AppearanceMode, ThemeColors> = {
   },
 };
 Colors.loadSchemes(themes);
-Colors.setScheme('light');
+Colors.setScheme(storeRedux.getState().theme.mode || 'light');
 
 export const setTheme = (mode = storeRedux.getState().theme.mode) => {
   let nextMode: AppearanceMode = mode === 'dark' ? 'light' : 'dark';
   Colors.setScheme(nextMode);
   storeRedux.dispatch(changeTheme(nextMode));
+  storageLocalData.setString('theme', nextMode);
 };
 
 export const getTheme = () => {

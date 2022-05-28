@@ -7,6 +7,7 @@ import {getNavigationTheme, getThemeStatusBarStyle} from 'designs/Colors';
 import {useSelector} from 'react-redux';
 import {RootState} from 'store/storeRedux';
 import ModalGlobal from 'components/ModalGlobal';
+import RNBootSplash from 'react-native-bootsplash';
 
 export default function App() {
   const theme = useSelector((state: RootState) => state.theme);
@@ -14,7 +15,11 @@ export default function App() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <StatusBar barStyle={getThemeStatusBarStyle()} />
-      <NavigationContainer theme={getNavigationTheme(theme.mode)}>
+      <NavigationContainer
+        theme={getNavigationTheme(theme.mode)}
+        onReady={() => {
+          RNBootSplash.hide({fade: true});
+        }}>
         <Root />
       </NavigationContainer>
       <ModalGlobal />

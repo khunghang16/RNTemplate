@@ -1,5 +1,5 @@
 import {MMKVLoader, useMMKVStorage} from 'react-native-mmkv-storage';
-const storage = new MMKVLoader().initialize();
+export const storageLocalData = new MMKVLoader().initialize();
 
 export type KeyStoreType = 'intro' | 'go' | 'next' | 'search' | 'send';
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const useLocalData = ({key, defaultData}: Props) => {
-  const [data, setData] = useMMKVStorage(key, storage, defaultData);
+  const [data, setData] = useMMKVStorage(key, storageLocalData, defaultData);
 
   return {
     data,

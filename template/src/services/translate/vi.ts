@@ -7,6 +7,7 @@ const vi = {
   },
   home: {
     title: 'Trang chủ',
+    changeLanguage: 'Thay đổi ngôn ngữ',
   },
 };
 
