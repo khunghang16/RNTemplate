@@ -6,6 +6,7 @@ import {StyleSheet, StatusBar} from 'react-native';
 import {getNavigationTheme, getThemeStatusBarStyle} from 'designs/Colors';
 import {useSelector} from 'react-redux';
 import {RootState} from 'store/storeRedux';
+import ModalGlobal from 'components/ModalGlobal';
 
 export default function App() {
   const theme = useSelector((state: RootState) => state.theme);
@@ -16,6 +17,7 @@ export default function App() {
       <NavigationContainer theme={getNavigationTheme(theme.mode)}>
         <Root />
       </NavigationContainer>
+      <ModalGlobal />
     </GestureHandlerRootView>
   );
 }

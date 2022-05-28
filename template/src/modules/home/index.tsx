@@ -1,11 +1,14 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Button} from 'react-native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {View, Text} from 'react-native-ui-lib';
+import {View, Text, ButtonAnimationDirection} from 'react-native-ui-lib';
 import {setTheme} from 'designs/Colors';
+import {useAppNavigation} from 'navigations/types';
+import {showModalGlobal} from 'components/ModalGlobal';
 
 const Home = () => {
   const {t} = useTranslation();
+  const navigation = useAppNavigation();
   return (
     <View style={styles.container} bg-bgColor>
       <Text
@@ -15,6 +18,29 @@ const Home = () => {
         }}>
         {t('home.title')}
       </Text>
+      <Button
+        onPress={() => {
+          showModalGlobal({
+            visible: true,
+            rowButton: true,
+            arrayButton: [
+              {
+                label: 'Left',
+                onPress: () => {
+                  console.warn('Left');
+                },
+              },
+              {
+                label: 'Right',
+                onPress: () => {
+                  console.warn('Right');
+                },
+              },
+            ],
+          });
+        }}
+        title="Open Modal"
+      />
     </View>
   );
 };

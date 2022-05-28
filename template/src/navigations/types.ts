@@ -9,6 +9,8 @@ export type RootStackParamList = {
 
   MainTab: undefined;
   Home: undefined;
+  HomeModal: undefined;
+
   Settings: undefined;
 };
 

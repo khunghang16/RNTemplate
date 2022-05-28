@@ -1,5 +1,5 @@
 import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
-import {Colors} from 'react-native-ui-lib';
+import {Colors, ThemeManager} from 'react-native-ui-lib';
 import {storeRedux} from 'store/storeRedux';
 import {changeTheme} from 'store/theme';
 type DesignSystemColors = Record<string, string>;
@@ -10,6 +10,7 @@ type ThemeColors = {
   textColor: string;
   bgColor: string;
   bg2Color: string;
+  bgPan: string;
 };
 
 const colors: DesignSystemColors = {
@@ -27,12 +28,14 @@ export const themes: Record<AppearanceMode, ThemeColors> = {
     ...colors,
     textColor: colors.blackish,
     bgColor: colors.whitish,
+    bgPan: Colors.rgba(Colors.black, 0.2),
     bg2Color: colors.whitish2,
   },
   dark: {
     ...colors,
     textColor: colors.whitish,
     bgColor: colors.blackish,
+    bgPan: Colors.rgba(Colors.white, 0.2),
     bg2Color: colors.blackish2,
   },
 };
@@ -92,3 +95,7 @@ export const getNavigationTheme = (
       return MyDefaultTheme;
   }
 };
+
+ThemeManager.setComponentTheme('Text', {
+  textColor: true,
+});
