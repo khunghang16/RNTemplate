@@ -17,17 +17,19 @@ import './src/services/translate';
 import './src/designs/Colors';
 import FallbackError, {errorHandler} from 'components/FallbackError';
 import Config from 'react-native-config';
+import * as Sentry from '@sentry/react-native';
+
 const environment = Config.ENVIRONMENT;
 
 LogBox.ignoreAllLogs();
 console.log('environment', environment);
 
-const RootApp = () => (
+const RootApp = Sentry.wrap(() => (
   <ErrorBoundary FallbackComponent={FallbackError} onError={errorHandler}>
     <Provider store={storeRedux}>
       <App />
     </Provider>
   </ErrorBoundary>
-);
+));
 
 AppRegistry.registerComponent(appName, () => RootApp);

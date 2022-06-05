@@ -1,9 +1,12 @@
 import React from 'react';
 import {StyleSheet, Button} from 'react-native';
 import {View, Text} from 'react-native-ui-lib';
+import {captureException, captureMessage} from 'services/sentry';
 
 export const errorHandler = (error: Error, stackTrace: string) => {
   /* Log the error to an error reporting service */
+  captureMessage(stackTrace);
+  captureException(error);
 };
 
 const FallbackError = (props: {error: Error; resetError: Function}) => {
