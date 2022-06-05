@@ -2,7 +2,9 @@
  * @format
  */
 import 'react-native-gesture-handler';
-
+if (__DEV__) {
+  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
+}
 import React from 'react';
 import {AppRegistry, LogBox} from 'react-native';
 import App from './src/index';

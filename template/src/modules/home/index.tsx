@@ -5,21 +5,34 @@ import {View, Text} from 'react-native-ui-lib';
 import {setTheme} from 'designs/Colors';
 import {useAppNavigation} from 'navigations/types';
 import {showModalGlobal} from 'components/ModalGlobal';
+import {useAsyncFn} from 'react-use';
+import {getMovie} from 'api/authApi';
 
 const Home = () => {
   const {t, i18n} = useTranslation();
   const navigation = useAppNavigation();
+
+  const [state, doFetch] = useAsyncFn(async () => {
+    let response;
+    try {
+      response = await getMovie;
+    } catch (error) {}
+    return response;
+  }, []);
+
+  React.useEffect(() => {
+    doFetch();
+  }, [doFetch]);
+
   return (
     <View style={styles.container} bg-bgColor>
       <Text
-        textColor
         onPress={() => {
           setTheme();
         }}>
         {t('home.title')}
       </Text>
       <Text
-        textColor
         onPress={() => {
           i18n.changeLanguage(i18n.language === 'vi' ? 'en' : 'vi');
         }}>
