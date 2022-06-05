@@ -16,8 +16,11 @@ import ErrorBoundary from 'react-native-error-boundary';
 import './src/services/translate';
 import './src/designs/Colors';
 import FallbackError, {errorHandler} from 'components/FallbackError';
+import Config from 'react-native-config';
+const environment = Config.ENVIRONMENT;
 
 LogBox.ignoreAllLogs();
+console.log('environment', environment);
 
 const RootApp = () => (
   <ErrorBoundary FallbackComponent={FallbackError} onError={errorHandler}>

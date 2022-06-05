@@ -13,7 +13,9 @@ import {RootState} from 'store/storeRedux';
 import ModalGlobal from 'components/ModalGlobal';
 import RNBootSplash from 'react-native-bootsplash';
 import {View} from 'react-native-ui-lib';
-
+import Config from 'react-native-config';
+const environment = Config.ENVIRONMENT;
+console.log('environment', environment);
 export default function App() {
   const theme = useSelector((state: RootState) => state.theme);
 

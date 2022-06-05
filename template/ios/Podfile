@@ -4,7 +4,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '11.0'
 install! 'cocoapods', :deterministic_uuids => false
 
-target 'ProjectName' do
+abstract_target 'App' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -18,10 +18,15 @@ target 'ProjectName' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
-  target 'ProjectNameTests' do
-    inherit! :complete
-    # Pods for testing
+  
+  target 'ProjectName' do
+    target 'ProjectNameTests' do
+      inherit! :complete
+      # Pods for testing
+    end
+  end
+  target 'ProjectNameDevelopment' do
+      #Development-specific pods
   end
 
   # Enables Flipper.
