@@ -1,7 +1,19 @@
 import axios, {AxiosError, AxiosRequestConfig} from 'axios';
+import {showModalGlobal} from 'components/ModalGlobal';
 import reactotron from 'reactotron-react-native';
 
 export const handleError = (error: AxiosError) => {
+  showModalGlobal({
+    visible: true,
+    rowButton: true,
+    arrayButton: [
+      {
+        label: 'OK',
+        onPress: () => {},
+      },
+    ],
+    description: 'Lỗi api',
+  });
   if (error.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx

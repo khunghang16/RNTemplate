@@ -5,4 +5,4 @@ export const AuthApi = createAxios({
   headers: {'X-Custom-Header': 'foobar'},
 });
 
-export const getMovie = AuthApi.get('/movies.json');
+export const getMovie = AuthApi.get('/movies1.json');
