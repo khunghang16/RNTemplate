@@ -6552,6 +6552,11 @@ react-native-device-info@^8.7.1:
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-8.7.1.tgz#fbb06f87dbbc4423abe713874699fb2e6e99fd15"
   integrity sha512-cVMZztFa2Qn6qpQa601W61CtUwZQ1KXfqCOeltejAWEXmgIWivC692WGSdtGudj4upSi1UgMSaGcvKjfcpdGjg==
 
+react-native-error-boundary@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/react-native-error-boundary/-/react-native-error-boundary-1.1.13.tgz#906bd176ed5fc6b70a88b25138c6853801c5a1af"
+  integrity sha512-nSBk+UsaPcylahyQ+ytrdBxXiMBnbajhVMD9jK51XLm613A2dxPqh9eJ+GdUnoUfDNpOHNR6HWQyD6wRFDN6zg==
+
 react-native-flipper@^0.34.0:
   version "0.34.0"
   resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.34.0.tgz#7df1f38ba5d97a9321125fe0fccbe47d99e6fa1d"
