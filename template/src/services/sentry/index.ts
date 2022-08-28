@@ -13,7 +13,7 @@ export const initSentry = () => {
     // Replace the example DSN below with your own DSN:
     dsn: 'https://cd415ed3fc624b42866184db6b238679@o1275852.ingest.sentry.io/6471118',
     environment: Config.ENVIRONMENT,
-    debug: true,
+    debug: false,
     // beforeSend: e => {
     //   console.log('Event beforeSend:', e);
     //   return e;
