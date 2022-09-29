@@ -26,3 +26,6 @@ showModalGlobal({
         },
     ],
 });
+
+## create project 
+npx react-native init SomeApp --template https://github.com/khunghang16/RNTemplate.git
