@@ -4,8 +4,7 @@ import {
   NavigationContainerRef,
 } from '@react-navigation/native';
 import Root from 'navigations/root';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {StyleSheet, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
 import {
   getNavigationTheme,
   getThemeStatusBarStyle,
@@ -16,10 +15,10 @@ import {RootState} from 'store/storeRedux';
 import ModalGlobal from 'components/ModalGlobal';
 import RNBootSplash from 'react-native-bootsplash';
 import {View} from 'react-native-ui-lib';
-import {reactNavigationInstrumentation, initSentry} from 'services/sentry';
+// import {reactNavigationInstrumentation, initSentry} from 'services/sentry';
 import {RootStackParamList} from 'navigations/types';
 
-initSentry();
+// initSentry();
 
 export const navigationRef =
   React.createRef<NavigationContainerRef<RootStackParamList>>();
@@ -27,32 +26,24 @@ export const navigationRef =
 export default function App() {
   const theme = useSelector((state: RootState) => state.theme);
   return (
-    <GestureHandlerRootView style={styles.container}>
-      <View bg-bgColor flex>
-        <StatusBar
-          barStyle={getThemeStatusBarStyle()}
-          translucent={true}
-          backgroundColor={getBgStatusBarStyle()}
-        />
-        <NavigationContainer
-          ref={navigationRef}
-          theme={getNavigationTheme(theme.mode)}
-          onReady={() => {
-            reactNavigationInstrumentation.registerNavigationContainer(
-              navigationRef,
-            );
-            RNBootSplash.hide({fade: true});
-          }}>
-          <Root />
-        </NavigationContainer>
-        <ModalGlobal />
-      </View>
-    </GestureHandlerRootView>
+    <View bg-bgColor flex>
+      <StatusBar
+        barStyle={getThemeStatusBarStyle()}
+        translucent={true}
+        backgroundColor={getBgStatusBarStyle()}
+      />
+      <NavigationContainer
+        ref={navigationRef}
+        theme={getNavigationTheme(theme.mode)}
+        onReady={() => {
+          // reactNavigationInstrumentation.registerNavigationContainer(
+          //   navigationRef,
+          // );
+          RNBootSplash.hide({fade: true});
+        }}>
+        <Root />
+      </NavigationContainer>
+      <ModalGlobal />
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

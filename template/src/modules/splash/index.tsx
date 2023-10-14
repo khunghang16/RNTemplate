@@ -14,7 +14,6 @@ const Splash = ({onLoadSplash}: Props) => {
       <Text
         onPress={() => {
           onLoadSplash();
-          // i18n.changeLanguage(i18n.language === 'vi' ? 'en' : 'vi');
         }}>
         {t('splash.version', {appVersion: getVersionApp()})}
       </Text>

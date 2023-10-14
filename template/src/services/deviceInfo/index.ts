@@ -1,11 +1,9 @@
 import DeviceInfo from 'react-native-device-info';
 
 export const getVersionApp = (): string => {
-  let version = DeviceInfo.getVersion();
-  return version;
+  return DeviceInfo.getVersion();
 };
 
 export const getNumberBuildApp = (): string => {
-  let build = DeviceInfo.getBuildNumber();
-  return build;
+  return DeviceInfo.getBuildNumber();
 };

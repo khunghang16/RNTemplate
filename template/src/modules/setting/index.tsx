@@ -1,13 +1,13 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const Setting = () => {
+const Setting = React.memo(() => {
   return (
     <View style={styles.container}>
       <Text>Setting</Text>
     </View>
   );
-};
+});
 
 export default Setting;
 
